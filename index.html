@@ -1,56 +1,405 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBTIS 101</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Escuela Técnica</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #054688;
+      color: white;
+      padding: 1em;
+      text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #031d60;
+      gap: 1em;
+      flex-wrap: wrap;
+      padding: 0.5em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav button {
+      background-color: #5c5f63;
+      border: none;
+      color: white;
+      padding: 0.6em 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    nav button:hover {
+      background-color: #3e4245;
+    }
+    section {
+      display: none;
+      padding: 2em;
+    }
+    section.active {
+      display: block;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-top: 1em;
+      color: #000203;
+
+    }
+    h1, h2, p {
+      margin: 0.5em 0;
+    }
+    section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 1em;
+    }
+     iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      margin-top: 1em;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 1em;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      color: #000000;
+    }
+    .card p {
+      color: #555;
+    }
+    footer {
+      background-color: #000000;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    section :active {
+      background-color: #f0f0f0;
+    }
+    section faacebook {
+      background-color: #e3f2fd;
+    }
+    section carreras {
+      background-color: #e8f5e9;
+    }
+    section actividades {
+      background-color: #fff3e0;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+      }
+      header {
+        padding: 1em;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav button {
+        width: 100%;
+        margin-bottom: 0.5em;
+      }
+      section {
+        padding: 1em;
+      }
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+      }
+      header {
+        padding: 1em;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav button {
+        width: 100%;
+        margin-bottom: 0.5em;
+      }
+      section {
+        padding: 1em;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 1em;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav button {
+        width: 100%;
+        margin-bottom: 0.5em;
+      }
+      section {
+        padding: 1em;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav button {
+        width: 100%;
+        margin-bottom: 0.5em;
+      }
+    }
+    @media (min-width: 601px) {
+      nav button {
+        width: auto;
+      }
+    }
+    @media (min-width: 768px) {
+      section {
+        padding: 3em;
+      }
+      .card {
+        padding: 1.5em;
+      }
+    }
+    @media (min-width: 1024px) {
+      header {
+        padding: 2em;
+      }
+      nav button {
+        padding: 0.8em 1.5em;
+      }
+      section {
+        padding: 4em;
+      }
+      .card {
+        padding: 2em;
+      }
+    }
+    @media (min-width: 1200px) {
+      header {
+        padding: 3em;
+      }
+      nav button {
+        padding: 1em 2em;
+      }
+      section {
+        padding: 5em;
+      }
+      .card {
+        padding: 2.5em;
+      }
+    }
+    @media (min-width: 1400px) {
+      header {
+        padding: 4em;
+      }
+      nav button {
+        padding: 1.2em 2.5em;
+      }
+      section {
+        padding: 6em;
+      }
+      .card {
+        padding: 3em;
+      }
+    }
+    @media (min-width: 1600px) {
+      header {
+        padding: 5em;
+      }
+      nav button {
+        padding: 1.5em 3em;
+      }
+      section {
+        padding: 7em;
+      }
+      .card {
+        padding: 3.5em;
+      }
+    }
+    @media (min-width: 1800px) {
+      header {
+        padding: 6em;
+      }
+      nav button {
+        padding: 1.8em 3.5em;
+      }
+      section {
+        padding: 8em;
+      }
+      .card {
+        padding: 4em;
+      }
+    }
+    @media (min-width: 2000px) {
+      header {
+        padding: 7em;
+      }
+      nav button {
+        padding: 2em 4em;
+      }
+      section {
+        padding: 9em;
+      }
+      .card {
+        padding: 4.5em;
+      }
+    }
+    @media (min-width: 2200px) {
+      header {
+        padding: 8em;
+      }
+      nav button {
+        padding: 2.2em 4.5em;
+      }
+      section {
+        padding: 10em;
+      }
+      .card {
+        padding: 5em;
+      }
+    }
+
+  </style>
 </head>
 <body>
-<header
-<hi>Bienvenidos</h1>
-</healer>
-<nav>
-<ul>
-<li><a href="#">UAC'S</a></li>
-<li><a href="#">capacitaciones</a></li>
-<li><a href="#">contacto</a></li>
-</ul>
-</nav>
-<main>
-<section>
-<h2>Noticias recientes</h2>
-<p>Aqui puedes encontrar las noticias mas recientes del CBTIS 101 del estado de veracruz en el municipio de tezona
+
+  <header>
+    <h1>CBTis No.101 Motzorongo,Veracurz</h1>
+    <p>Formando el futuro desde hoy</p>
+  </header>
+
+  <nav>
+    <button onclick="mostrar('historia')">Historia</button>
+    <button onclick="mostrar('ubicacion')">Ubicación</button>
+    <button onclick="mostrar('carreras')">Carreras</button>
+    <button onclick="mostrar('actividades')">Actividades</button>
+    <button onclick="mostrar('facebook')">Facebook</button>
+  </nav>
+
+  <section id="historia" class="active">
+    <h2>Nuestra Historia</h2>
+    <p>El Centro de Bachillerato Tecnológico industrial y de servicios No. 101 (CBTis 101) fue fundado con la misión de ofrecer educación de nivel medio superior con enfoque técnico, brindando oportunidades a jóvenes de Motzorongo y comunidades cercanas. </p>
+    <p>Desde su apertura, ha trabajado por la excelencia académica y el desarrollo integral de sus estudiantes. A lo largo de los años, ha crecido en infraestructura, matrícula y calidad educativa. Su planta docente está comprometida con la formación de profesionales responsables y capacitados. </p>
+    <p>Las carreras técnicas ofrecidas responden a las necesidades del entorno productivo regional. Su comunidad educativa se distingue por el respeto, la disciplina y el compromiso. El CBTis 101 ha sido clave en la transformación educativa y social de su región.</p>
+  <p>Motzorongo es una comunidad ubicada en el municipio de Tezonapa, en el estado de Veracruz. Es conocida por su vocación agrícola, especialmente por el cultivo de caña de azúcar. La localidad es parte de una región montañosa con abundante vegetación y clima cálido-húmedo. Cuenta con una historia ligada a la industria azucarera y es sede del ingenio Motzorongo. La comunidad es pequeña pero activa, con fuerte sentido de pertenencia y colaboración social. Su ubicación estratégica la convierte en un punto clave para estudiantes de localidades vecinas. Motzorongo representa un entorno tranquilo y propicio para el aprendizaje y el desarrollo juvenil.</p>
 </section>
-<section>
-<h2>UAC´S</h2>
-<p>Explora nuestras materias y recursos de aprendizaje.</p>
-</section>
-<section>
-<h2>capacitaciones para trabajo</h2>
-<p>consulta las capacitaciones para trabajo con las que cuenta tu plantel.</p>
-</section>
-</main>
-<footer>
-<p>&copy; 2025 CBTIS 101</p>
-</footer>
+
+  <section id="ubicacion">
+    <h2>Ubicación</h2>
+    <p>
+      Nuestra escuela se encuentra en el corazón de la ciudad, accesible para todos los estudiantes. El entorno es seguro, rodeado de naturaleza y con instalaciones modernas que inspiran el aprendizaje. A continuación puedes ver nuestra ubicación en el mapa:
+    </p>
+    <p>Dirección: Se localiza en el Eje Vial Km 1, carretera Motzorongo–Tezonapa, C.P. 95090, Motzorongo, Tezonapa, Veracruz </p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.036832947019!2d-96.90156498466706!3d18.60741458788942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85da8e3918e87ecf%3A0xd930ef5aa1b33f5!2sCBTis%20101%20Motzorongo!5e0!3m2!1ses-419!2smx!4v1684748526938!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+  <section id="facebook">
+    <h2>facebook</h2>
+    <p>
+    Síguenos en nuestra página oficial de Facebook para estar al tanto de noticias, eventos y actividades de la escuela. Aquí encontrarás fotos, anuncios importantes y podrás interactuar con otros estudiantes y docentes. ¡No te lo pierdas!
+    </p>
+   <p><a href="https://www.facebook.com/CBTIS101MOTZORONGO/?locale=es_LA" target="_blank" style="color: #001789;">Página oficial de Facebook</a></p>
+  </section>
+
+  <section id="carreras">
+    <h2>Carreras Técnicas</h2>
+    <div class="card">
+      <h3>Contabilidad</h3>
+      <p>Esta carrera capacita a los jóvenes en el registro y análisis de operaciones financieras de empresas, instituciones o negocios. Los estudiantes aprenden a elaborar estados financieros, manejar sistemas contables y cumplir con obligaciones fiscales. También se familiarizan con herramientas digitales especializadas y legislación aplicable en materia contable.</p>   
+      <p>El perfil de egreso permite trabajar en despachos contables, empresas privadas o instituciones públicas. La formación combina conocimientos técnicos con habilidades organizativas y de responsabilidad ética. Esta especialidad ofrece amplias oportunidades laborales y posibilidades de continuar estudios universitarios en administración o contaduría pública.</p>
+   <img src="" alt="">
+    </div>
+    <div class="card">
+      <h3>Mecanica Industrial  </h3>
+      <p>Esta carrera técnica prepara a los estudiantes en el mantenimiento, reparación y operación de maquinaria utilizada en entornos industriales. Aprenden a interpretar planos mecánicos, trabajar con sistemas hidráulicos y neumáticos, y operar herramientas especializadas. El programa se enfoca en el funcionamiento y conservación de equipos industriales, garantizando su eficiencia y seguridad. </p>   
+       <p>Los egresados están listos para incorporarse al sector productivo en industrias de manufactura, mantenimiento o producción. Se promueve la resolución de problemas técnicos y el trabajo en equipo. La formación incluye prácticas en talleres y proyectos reales de aplicación industrial.</p>
+      <img src="WhatsApp Image 2025-06-09 at 10.14.41.jpeg" alt="Mecanica Industrial">
+    </div>
+    <div class="card">
+      <h3>Laboratorista Clinico </h3>
+      <p>Esta carrera forma a los estudiantes en el manejo y análisis de muestras biológicas con el fin de apoyar en el diagnóstico y prevención de enfermedades. Los alumnos aprenden a trabajar con equipos de laboratorio, interpretar resultados, y aplicar normas de higiene y seguridad. Se preparan para desenvolverse profesionalmente en clínicas, hospitales, laboratorios privados y centros de investigación. </p>   
+      <p>El programa ofrece formación tanto teórica como práctica a lo largo de los semestres. Se desarrolla un perfil ético, responsable y preciso en el manejo de la información médica. El egresado podrá colaborar en procesos clínicos y desarrollar investigaciones aplicadas al área de la salud.</p>
+    <img src="WhatsApp Image 2025-06-09 at 10.02.10.jpeg" alt="laboratorista clinico">
+    </div>
+    <div class="card">
+      <h3> Producion industrial de Alimentos </h3>
+      <p>Esta carrera enseña a los estudiantes cómo transformar materias primas en productos alimenticios a gran escala, bajo estrictas normas de calidad e inocuidad. Se abordan temas como conservación de alimentos, procesos industriales, normativas sanitarias y control de calidad.</p>   
+       <p>Los alumnos trabajan en laboratorios de alimentos y plantas piloto donde aplican sus conocimientos de forma práctica. Esta especialidad es esencial en la región por su vocación agroindustrial. El egresado está capacitado para integrarse a empresas procesadoras de alimentos o emprender sus propios proyectos productivos. Se fomenta una actitud innovadora y comprometida con la seguridad alimentaria.</p>
+   <img src="alimentos.jpeg" alt="Producción Industrial de Alimentos">
+    </div>
+  </section>
+
+  <section id="actividades">
+    <h2>Actividades</h2>
+    <div class="card">
+      <h3>carrera por la paz</h3>
+      <p>Nuestros Alumnos caminaron 2 klm con el fin de hacer cociencia del mal uso de las drogas ,cuya activadad tenia el fin de llegar a un punto de encuento al cual los alumnos llevaron letras en sus espaldas para formar una frase contra las drogas.  </p>
+    </div>
+    <div class="card">
+      <h3>jornada por la salud</h3>
+      <p>Contamos con equipos de fútbol, voleibol y atletismo. El deporte es parte integral de tu formación.</p>
+      <p>Los alumnos preparan alimentos para promover un ambiente sano y en la cual se promueve una alimentacion sana.</p>
+    </div>
+    <div class="card">
+      <h3>tequios y eventos </h3>
+      <p>Toda la comunidad estudiantil hace lipiemza en la escuela con el fin de promover un ambiente limpio y sano.</p>
+      <p>Los alumnos tambien participan en eventos los cuales son:</p>
+      <strong><li>Dia de la indepencia</li></strong>
+    <strong><li>Dia de la bandera</li></strong>
+    <strong><li>Dia de muertos</li></strong>
+    <strong><li>Navidad</li></strong>
+    <strong><li>Dia del estudiante</li></strong>
+    </div>
+  </section>
+    
+  <script>
+    function mostrar(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+    <footer>
+        <p style="text-align: center; padding: 1em; background-color: #000000; color: white;">&copy; 2023 CBTis No.101 Motzorongo, Veracruz</p>
+    </footer>
 </body>
 </html>
-/*<styles.css>*/
-body {
-    <font-family:arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-header {
-    background-color: #7f1e20;
-    color: #fff;
-    padding: 20px
-}
-nav ul {
-    List-style: none;
-    padding: 0;
-    background-color: #333;
-    text-align: center;
-}
